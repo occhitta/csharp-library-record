@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 基本設定 -->
+  <PropertyGroup>
+    <!-- バージョン設定 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <!-- コンパイル設定 -->
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- 決定論的ビルド -->
+    <!-- dotnet-coverageでエラーとなる為、コメントアウト(NuGet用では有効化する)
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)../'))</RepoRoot>
+    <PathMap>$(RepoRoot)=Source.Code</PathMap>
+    -->
+    <!-- ドキュメント設定 -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin/Occhitta.Library.Record.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <!-- 許可設定 -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Occhitta.Library.Record.Test</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>
