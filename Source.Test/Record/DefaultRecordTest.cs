@@ -58,7 +58,7 @@ public class DefaultRecordTest : DataRecordTest {
 	/// <summary>
 	/// 検証情報を生成します。
 	/// </summary>
-	/// <returns>検証集合</returns>
+	/// <returns>検証一覧</returns>
 	private static IEnumerable<TestCaseData> CreateProperties() {
 		yield return new TestCaseData(null)         { ExpectedResult = null };
 		yield return new TestCaseData(DBNull.Value) { ExpectedResult = null };
@@ -68,6 +68,8 @@ public class DefaultRecordTest : DataRecordTest {
 	/// <summary>
 	/// <see cref="DefaultRecord[string]" />を検証します。
 	/// </summary>
+	/// <param name="data">検証情報</param>
+	/// <returns>要素情報</returns>
 	[TestCaseSource(nameof(CreateProperties))]
 	public object? AssertProperties(object? data) {
 		var source = new DefaultRecord();

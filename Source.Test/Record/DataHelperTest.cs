@@ -9,7 +9,7 @@ public class DataHelperTest {
 	/// <summary>
 	/// 検証情報を生成します。
 	/// </summary>
-	/// <returns>検証情報</returns>
+	/// <returns>検証一覧</returns>
 	private static IEnumerable<TestCaseData> CreateToString() {
 		yield return new TestCaseData(null                                   ) { ExpectedResult = "Null"                        };
 		yield return new TestCaseData(DBNull.Value                           ) { ExpectedResult = "Null"                        };
@@ -41,6 +41,7 @@ public class DataHelperTest {
 	/// <see cref="DataHelper.ToString(object?)" />を検証します。
 	/// </summary>
 	/// <param name="source">検証情報</param>
+	/// <returns>表現文字列</returns>
 	[TestCaseSource(nameof(CreateToString))]
 	public string AssertToString(object? source) =>
 		DataHelper.ToString(source);

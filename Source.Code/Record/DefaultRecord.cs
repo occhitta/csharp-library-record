@@ -101,7 +101,7 @@ public sealed class DefaultRecord : DataRecord {
 	}
 	#endregion 実装メソッド定義
 
-	#region 検証メソッド定義
+	#region 継承メソッド定義
 	/// <summary>
 	/// 当該文字列を表現文字列へ変換します。
 	/// </summary>
@@ -120,5 +120,5 @@ public sealed class DefaultRecord : DataRecord {
 		result.Append('}');
 		return result.ToString();
 	}
-	#endregion 検証メソッド定義
+	#endregion 継承メソッド定義
 }

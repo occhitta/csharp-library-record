@@ -79,15 +79,15 @@ public abstract class CollectionTest {
 		yield return new TestCaseData(new DataPacket[] {new("code", 3), new("name", "CC"), new("memo", 1234), new("code", 4)}, new DataPacket[] {new("code", 4), new("name", "CC"), new("memo", 1234)});
 	}
 	/// <summary>
-	/// 要素集合を検証します。
+	/// 要素情報を検証します。
 	/// </summary>
-	/// <param name="source">要素一覧</param>
+	/// <param name="source">要素情報</param>
 	/// <param name="action">検証処理</param>
 	protected abstract Task AssertCollection(IReadOnlyList<DataPacket> source, Action<IReadOnlyCollection<DataPacket>> action);
 	/// <summary>
 	/// <see cref="IReadOnlyCollection{DataPacket}" />を検証します。
 	/// </summary>
-	/// <param name="source">要素一覧</param>
+	/// <param name="source">要素情報</param>
 	/// <param name="expect">想定情報</param>
 	[TestCaseSource(nameof(CreateCollection))]
 	public async Task AssertCollection(IReadOnlyList<DataPacket> source, IReadOnlyList<DataPacket> expect) {

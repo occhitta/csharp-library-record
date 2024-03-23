@@ -15,7 +15,7 @@ public abstract class DataRecordTest : CollectionTest {
 
 	#region 実装メソッド定義(AssertCollection)
 	/// <summary>
-	/// 要素集合を検証します。
+	/// 要素情報を検証します。
 	/// </summary>
 	/// <param name="source">要素一覧</param>
 	/// <param name="action">検証処理</param>
