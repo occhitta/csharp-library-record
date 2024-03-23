@@ -38,13 +38,11 @@ public class DataHelperTest {
 
 	#region 検証メソッド定義(AssertToString)
 	/// <summary>
-	/// <see cref="RdbHelper.ToString(System.Data.Common.DbCommand)" />を検証します。
+	/// <see cref="DataHelper.ToString(object?)" />を検証します。
 	/// </summary>
-	/// <param name="sourceName">検証名称</param>
-	/// <param name="sourceData">検証情報</param>
-	/// <remarks>当該メソッドは「SQLite」を対象としており、別プロバイダーでは処理が異なる場合があります</remarks>
+	/// <param name="source">検証情報</param>
 	[TestCaseSource(nameof(CreateToString))]
-	public string AssertToString(object? sourceData) =>
-		DataHelper.ToString(sourceData);
+	public string AssertToString(object? source) =>
+		DataHelper.ToString(source);
 	#endregion 検証メソッド定義(AssertToString)
 }
