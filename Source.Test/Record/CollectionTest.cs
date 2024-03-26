@@ -4,19 +4,19 @@ namespace Occhitta.Libraries.Record;
 /// <see cref="IReadOnlyCollection{DataPacket}" />検証クラスです。
 /// </summary>
 public abstract class CollectionTest {
-	#region 内部メソッド定義(AssertEquals)
+	#region 内部メソッド定義(AssertDataPacket)
 	/// <summary>
 	/// 引数が等価であるか判定します。
 	/// </summary>
 	/// <param name="actual">実質情報</param>
 	/// <param name="expect">想定情報</param>
-	private static void AssertEquals(DataPacket actual, DataPacket expect) {
+	protected static void AssertDataPacket(DataPacket actual, DataPacket expect) {
 		Assert.Multiple(() => {
 			Assert.That(actual.Name, Is.EqualTo(expect.Name));
 			Assert.That(actual.Data, Is.EqualTo(expect.Data));
 		});
 	}
-	#endregion 内部メソッド定義(AssertEquals)
+	#endregion 内部メソッド定義(AssertDataPacket)
 
 	#region 内部メソッド定義(AssertEnumerable)
 	/// <summary>
@@ -28,7 +28,7 @@ public abstract class CollectionTest {
 		var index = 0;
 		while (actual.MoveNext()) {
 			if (actual.Current is DataPacket choose) {
-				AssertEquals(choose, expect[index]);
+				AssertDataPacket(choose, expect[index]);
 			} else {
 				Assert.Fail();
 			}
@@ -54,7 +54,7 @@ public abstract class CollectionTest {
 	private static void AssertEnumerable(IEnumerator<DataPacket> actual, IReadOnlyList<DataPacket> expect) {
 		var index = 0;
 		while (actual.MoveNext()) {
-			AssertEquals(actual.Current, expect[index]);
+			AssertDataPacket(actual.Current, expect[index]);
 			index ++;
 		}
 		Assert.That(index, Is.EqualTo(expect.Count));

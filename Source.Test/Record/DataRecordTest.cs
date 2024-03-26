@@ -4,6 +4,28 @@ namespace Occhitta.Libraries.Record;
 /// <see cref="DataRecord" />検証クラスです。
 /// </summary>
 public abstract class DataRecordTest : CollectionTest {
+	#region 内部メソッド定義(AssertDataRecord)
+	/// <summary>
+	/// 引数が等価であるか検証します。
+	/// </summary>
+	/// <param name="actual">実質情報</param>
+	/// <param name="expect">想定情報</param>
+	protected static void AssertDataRecord(DataRecord actual, DataRecord expect) {
+		var length = expect.Count;
+		Assert.That(actual, Has.Count.EqualTo(length));
+		Assert.Multiple(() => {
+			foreach (var choose in actual) {
+				AssertDataPacket(choose, new DataPacket(choose.Name, expect[choose.Name]));
+			}
+		});
+		Assert.Multiple(() => {
+			foreach (var choose in expect) {
+				Assert.That(actual[choose.Name], Is.EqualTo(choose.Data));
+			}
+		});
+	}
+	#endregion 内部メソッド定義(AssertDataRecord)
+
 	#region 検証メソッド定義(AssertDataRecord)
 	/// <summary>
 	/// 要素情報を生成します。
